@@ -1,0 +1,1120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Katabatic — Pitch Deck · The Rating Agency for Stablecoin Reserves</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;1,400&family=Outfit:wght@200;300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.2.1/dist/reveal.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.2.1/dist/theme/black.css">
+    <style>
+        :root {
+            --bg: #f4f3fa;
+            --bg-deep: #eae8f4;
+            --accent: #7b6fc4;
+            --accent-bright: #8b7fd4;
+            --accent-soft: #a599e9;
+            --accent-deep: #524399;
+            --accent-muted: #c5bef0;
+            --accent-faint: rgba(123, 111, 196, 0.06);
+            --text: #18132e;
+            --text-2: #443d60;
+            --text-3: rgba(46, 42, 61, 0.45);
+            --text-4: rgba(46, 42, 61, 0.22);
+            --white: #fff;
+            --border: rgba(123, 111, 196, 0.11);
+            --border-strong: rgba(123, 111, 196, 0.22);
+            --mono: 'IBM Plex Mono', monospace;
+            --sans: 'Outfit', sans-serif;
+            --shadow-s: 0 1px 3px rgba(82, 67, 153, 0.04);
+            --shadow-m: 0 4px 20px rgba(82, 67, 153, 0.05);
+            --shadow-l: 0 12px 48px rgba(82, 67, 153, 0.07);
+            --danger: #d64545;
+            --green: #2e8b57;
+            --r-s: 8px;
+            --r-m: 14px;
+        }
+
+        /* ── Base ────────────────────────────────────── */
+        .reveal {
+            font-family: var(--sans);
+            font-weight: 300;
+            color: var(--text);
+            background: var(--bg);
+        }
+
+        .reveal .slides {
+            text-align: left;
+        }
+
+        .reveal h1,
+        .reveal h2,
+        .reveal h3,
+        .reveal h4,
+        .reveal h5,
+        .reveal h6 {
+            font-family: var(--sans);
+            text-transform: none;
+            font-weight: 300;
+            color: var(--text);
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            margin-bottom: 0;
+        }
+
+        .reveal section {
+            padding: 2em 8% !important;
+            overflow: hidden;
+            box-sizing: border-box;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .reveal section.top-slide {
+            justify-content: flex-start;
+            padding-top: 3em !important;
+        }
+
+        /* ── Subtle background ───────────────────────── */
+        .topo-bg {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+            opacity: .12;
+            background-image: url("data:image/svg+xml,%3Csvg width='600' height='600' viewBox='0 0 600 600' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%237b6fc4' stroke-width='0.4' opacity='0.12'%3E%3Cellipse cx='300' cy='300' rx='280' ry='260'/%3E%3Cellipse cx='300' cy='300' rx='240' ry='220'/%3E%3Cellipse cx='300' cy='300' rx='200' ry='185'/%3E%3Cellipse cx='300' cy='300' rx='160' ry='148'/%3E%3Cellipse cx='300' cy='300' rx='120' ry='112'/%3E%3Cellipse cx='300' cy='300' rx='80' ry='76'/%3E%3Cellipse cx='300' cy='300' rx='40' ry='38'/%3E%3C/g%3E%3C/svg%3E");
+            background-size: 600px 600px;
+        }
+
+        /* ── Typography ──────────────────────────────── */
+        .eyebrow {
+            font-family: var(--mono);
+            font-size: 0.44em;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--accent);
+            font-weight: 500;
+            margin-bottom: 18px;
+        }
+
+        .slide-hero {
+            font-size: 4em;
+            line-height: 0.95;
+            margin-bottom: 0.18em;
+            text-align: center;
+            font-weight: 300;
+            letter-spacing: -0.03em;
+        }
+
+        .slide-h2 {
+            font-size: 1.85em;
+            margin-bottom: 0.18em;
+            letter-spacing: -0.02em;
+            line-height: 1.15;
+        }
+
+        .em {
+            color: var(--accent-deep);
+        }
+
+        .lede {
+            font-size: 0.62em;
+            color: var(--text-2);
+            line-height: 1.65;
+            max-width: 80%;
+            font-weight: 300;
+        }
+
+        /* ── Soft glow accents ───────────────────────── */
+        .glow-a {
+            position: absolute;
+            width: 55%;
+            height: 65%;
+            background: radial-gradient(ellipse, rgba(123, 111, 196, 0.07) 0%, transparent 65%);
+            top: -15%;
+            right: -10%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .glow-b {
+            position: absolute;
+            width: 40%;
+            height: 55%;
+            background: radial-gradient(ellipse, rgba(165, 153, 233, 0.06) 0%, transparent 65%);
+            bottom: -10%;
+            left: -8%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* ── Cards ───────────────────────────────────── */
+        .card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.1em 1.15em;
+            box-shadow: var(--shadow-s);
+        }
+
+        .card-accent {
+            border-color: var(--border-strong);
+            background: linear-gradient(135deg, rgba(123, 111, 196, 0.03) 0%, var(--white) 100%);
+        }
+
+        /* ── Grids ───────────────────────────────────── */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        /* ── Stat block ──────────────────────────────── */
+        .stat-number {
+            font-family: var(--sans);
+            font-size: 2em;
+            font-weight: 600;
+            color: var(--accent-deep);
+            display: block;
+            line-height: 1;
+            margin-bottom: 8px;
+            letter-spacing: -0.02em;
+        }
+
+        .stat-label {
+            font-family: var(--mono);
+            font-size: 0.42em;
+            color: var(--text-3);
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        /* ── Pipeline ────────────────────────────────── */
+        .pipeline {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 4px;
+            margin: 24px 0;
+        }
+
+        .pipeline-step {
+            background: var(--white);
+            border: 1px solid var(--border);
+            padding: 0.9em 0.75em;
+            position: relative;
+        }
+
+        .pipeline-step:first-child {
+            border-radius: 14px 0 0 14px;
+        }
+
+        .pipeline-step:last-child {
+            border-radius: 0 14px 14px 0;
+        }
+
+        .pipeline-step::after {
+            content: '→';
+            position: absolute;
+            right: -9px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 0.55em;
+            color: var(--accent-muted);
+            z-index: 1;
+        }
+
+        .pipeline-step:last-child::after {
+            display: none;
+        }
+
+        .ps-num {
+            font-family: var(--mono);
+            font-size: 0.38em;
+            color: var(--text-4);
+            letter-spacing: 0.1em;
+            margin-bottom: 6px;
+        }
+
+        .ps-title {
+            font-size: 0.62em;
+            font-weight: 500;
+            color: var(--text);
+            margin-bottom: 3px;
+        }
+
+        .ps-desc {
+            font-family: var(--mono);
+            font-size: 0.42em;
+            color: var(--text-3);
+            line-height: 1.45;
+        }
+
+        /* ── Hero rating card ────────────────────────── */
+        .hero-card {
+            max-width: 380px;
+            margin: 0 auto;
+            text-align: left;
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            box-shadow: var(--shadow-l), 0 0 80px rgba(139, 127, 212, 0.06);
+            overflow: hidden;
+        }
+
+        .hc-header {
+            padding: 0.4em 0.65em;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(244, 243, 250, 0.5);
+        }
+
+        .hc-header span {
+            font-family: var(--mono);
+            font-size: 0.36em;
+            color: var(--text-3);
+            letter-spacing: 0.08em;
+        }
+
+        .hc-live {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-family: var(--mono);
+            font-size: 0.34em;
+            color: var(--accent);
+            font-weight: 500;
+            letter-spacing: 0.08em;
+        }
+
+        .hc-live::before {
+            content: '';
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: var(--accent-bright);
+            box-shadow: 0 0 6px rgba(139, 127, 212, .4);
+            animation: blink 2.2s ease-in-out infinite;
+        }
+
+        @keyframes blink {
+
+            0%,
+            100% {
+                opacity: 1
+            }
+
+            50% {
+                opacity: .3
+            }
+        }
+
+        .hc-body {
+            padding: 0.55em 0.7em;
+        }
+
+        .hc-row {
+            display: flex;
+            align-items: baseline;
+            padding: 0.25em 0;
+            border-bottom: 1px solid rgba(123, 111, 196, 0.06);
+        }
+
+        .hc-row:last-child {
+            border: none;
+        }
+
+        .hc-label {
+            font-family: var(--mono);
+            font-size: 0.4em;
+            color: var(--text-3);
+            width: 44px;
+        }
+
+        .hc-grade {
+            font-size: 0.62em;
+            color: var(--accent);
+            font-weight: 600;
+            width: 30px;
+        }
+
+        .hc-sub {
+            font-family: var(--mono);
+            font-size: 0.32em;
+            color: var(--text-4);
+            flex: 1;
+        }
+
+        /* ── ROI rows ────────────────────────────────── */
+        .roi-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px dashed var(--border);
+        }
+
+        .roi-row:last-child {
+            border-bottom: none;
+        }
+
+        .roi-label {
+            font-size: 0.58em;
+            color: var(--text-2);
+        }
+
+        .roi-value {
+            font-size: 0.54em;
+            font-weight: 500;
+            color: var(--accent-deep);
+        }
+
+        /* ── Tech pills ──────────────────────────────── */
+        .tech-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin-top: 8px;
+        }
+
+        .tech-pill {
+            font-family: var(--mono);
+            font-size: 0.42em;
+            color: var(--accent);
+            background: var(--accent-faint);
+            border: 1px solid rgba(123, 111, 196, 0.1);
+            padding: 3px 8px;
+            border-radius: 4px;
+        }
+
+        /* ── Category pills ──────────────────────────── */
+        .pill-row {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 24px;
+        }
+
+        .pill {
+            font-family: var(--mono);
+            font-size: 0.4em;
+            letter-spacing: 0.08em;
+            padding: 5px 14px;
+            border-radius: 4px;
+            background: var(--accent-faint);
+            color: var(--accent);
+            border: 1px solid rgba(123, 111, 196, 0.12);
+        }
+
+        /* ── Hide reveal chrome ──────────────────────── */
+        .reveal .progress,
+        .reveal .controls,
+        .reveal .slide-number {
+            display: none !important;
+        }
+
+        /* ── Progress bar ────────────────────────────── */
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent-deep), var(--accent), var(--accent-soft));
+            transition: width 0.4s ease;
+            z-index: 9000;
+            pointer-events: none;
+        }
+
+        /* ── Hint ────────────────────────────────────── */
+        .hint {
+            position: fixed;
+            top: 28px;
+            left: 36px;
+            font-family: var(--mono);
+            font-size: 9px;
+            letter-spacing: 0.12em;
+            color: var(--text-4);
+            z-index: 500;
+            cursor: pointer;
+            transition: color .2s;
+        }
+
+        .hint:hover {
+            color: var(--accent);
+        }
+
+        /* ── Nav ─────────────────────────────────────── */
+        .nav {
+            position: fixed;
+            bottom: 32px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            z-index: 500;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px) saturate(1.5);
+            -webkit-backdrop-filter: blur(20px) saturate(1.5);
+            border: 1px solid var(--border-strong);
+            border-radius: 40px;
+            padding: 10px 22px;
+            box-shadow: var(--shadow-m);
+        }
+
+        .nav-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--text-3);
+            font-size: 18px;
+            line-height: 1;
+            transition: color .2s;
+            padding: 2px 6px;
+            font-family: var(--sans);
+        }
+
+        .nav-btn:hover {
+            color: var(--accent);
+        }
+
+        .nav-dots {
+            display: flex;
+            gap: 5px;
+            align-items: center;
+        }
+
+        .nav-dot {
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: var(--text-4);
+            transition: background .25s, transform .25s;
+            cursor: pointer;
+        }
+
+        .nav-dot.active {
+            background: var(--accent);
+            transform: scale(1.4);
+        }
+
+        .nav-counter {
+            font-family: var(--mono);
+            font-size: 10px;
+            letter-spacing: 0.2em;
+            color: var(--text-3);
+            min-width: 52px;
+            text-align: center;
+        }
+
+        body.is-fullscreen .nav,
+        body.is-fullscreen .hint {
+            display: none;
+        }
+
+        body.is-fullscreen {
+            cursor: none;
+        }
+
+        /* ── Utility ─────────────────────────────────── */
+        .text-center {
+            text-align: center;
+        }
+
+        .mb-0 {
+            margin-bottom: 0;
+        }
+
+        .mt-auto {
+            margin-top: auto;
+        }
+
+        .flex-col {
+            display: flex;
+            flex-direction: column;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="topo-bg"></div>
+    <div class="progress-bar" id="progress"></div>
+    <div class="hint" id="hint">↗ fullscreen</div>
+
+    <nav class="nav">
+        <button class="nav-btn" id="prevBtn">←</button>
+        <div class="nav-dots" id="navDots"></div>
+        <span class="nav-counter" id="navCounter">01 / 08</span>
+        <button class="nav-btn" id="nextBtn">→</button>
+    </nav>
+
+    <div class="reveal">
+        <div class="slides">
+
+            <!-- ═══════════════════════════════════════════════════════════
+     SLIDE 1 — Title
+═══════════════════════════════════════════════════════════ -->
+            <section data-transition="zoom" style="text-align:center;">
+                <div class="glow-a"></div>
+                <div class="glow-b"></div>
+
+                <span
+                    style="font-family:var(--mono); font-size:0.44em; letter-spacing:0.2em; text-transform:uppercase; color:var(--accent); display:block; margin-bottom:20px;">
+                    Seed Round · 2026
+                </span>
+
+                <h1 class="slide-hero" style="margin-bottom:12px;">
+                    Katabatic<span style="color:var(--accent); font-weight:600;">.</span>
+                </h1>
+
+                <p
+                    style="font-size:0.72em; color:var(--text-2); max-width:50%; margin:0 auto 32px; line-height:1.5; font-weight:300;">
+                    The Moody's for stablecoin<br>
+                    <span class="em" style="font-weight:500;">reserve risk.</span>
+                </p>
+
+                <div class="fragment fade-in" style="margin-top:10px;">
+                    <div class="hero-card">
+                        <div class="hc-header"><span>KATABATIC RATINGS</span><span class="hc-live">LIVE</span></div>
+                        <div class="hc-body">
+                            <div class="hc-row"><span class="hc-label">USDC</span><span class="hc-grade">B+</span><span
+                                    class="hc-sub">▼ counterparty conc.</span></div>
+                            <div class="hc-row"><span class="hc-label">USDT</span><span class="hc-grade">A−</span><span
+                                    class="hc-sub">stable</span></div>
+                            <div class="hc-row"><span class="hc-label">DAI</span><span class="hc-grade">B+</span><span
+                                    class="hc-sub">▼ collateral shift</span></div>
+                            <div class="hc-row"><span class="hc-label">FRAX</span><span class="hc-grade">B</span><span
+                                    class="hc-sub">▼ weather exposure</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pill-row fragment fade-up">
+                    <span class="pill">ML / Data Science</span>
+                    <span class="pill">Fintech Infrastructure</span>
+                    <span class="pill">DeFi Risk</span>
+                </div>
+            </section>
+
+            <!-- ═══════════════════════════════════════════════════════════
+     SLIDE 2 — The Problem
+═══════════════════════════════════════════════════════════ -->
+            <section class="top-slide" data-transition="slide">
+                <span class="eyebrow">The Problem</span>
+                <h2 class="slide-h2">$150B in stablecoins.<br>No independent <span class="em">risk rating.</span></h2>
+                <p class="lede" style="margin-bottom:32px;">Moody's rates bonds. S&P rates sovereign debt. Nobody rates
+                    the reserve banking risk behind the stablecoins powering DeFi.</p>
+
+                <div class="grid-3" style="align-items:stretch;">
+                    <div class="card fragment fade-up" data-fragment-index="1">
+                        <span class="stat-number">$150B+</span>
+                        <span class="stat-label">Unrated Reserve Assets</span>
+                        <p
+                            style="font-size:0.48em; color:var(--text-2); margin:14px 0 0; line-height:1.6; font-weight:300;">
+                            Backed by banking relationships that change monthly. No continuous credit rating exists.
+                        </p>
+                    </div>
+
+                    <div class="card fragment fade-up" data-fragment-index="2">
+                        <span class="stat-number" style="color:var(--danger);">$3.3B</span>
+                        <span class="stat-label">USDC Held at SVB</span>
+                        <p
+                            style="font-size:0.48em; color:var(--text-2); margin:14px 0 0; line-height:1.6; font-weight:300;">
+                            A single bank failure depegged a $40B stablecoin to $0.87. A real-time rating would have
+                            flagged it.
+                        </p>
+                    </div>
+
+                    <div class="card fragment fade-up" data-fragment-index="3">
+                        <span class="stat-number">30 Days</span>
+                        <span class="stat-label">Between Audits</span>
+                        <p
+                            style="font-size:0.48em; color:var(--text-2); margin:14px 0 0; line-height:1.6; font-weight:300;">
+                            Monthly snapshots. Bank failures, natural disasters, and rate shocks go completely
+                            unmonitored.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ═══════════════════════════════════════════════════════════
+     SLIDE 3 — Rating Methodology
+═══════════════════════════════════════════════════════════ -->
+            <section class="top-slide" data-transition="slide">
+                <span class="eyebrow">Rating Methodology</span>
+                <h2 class="slide-h2">From attestation PDF to continuous <span class="em">risk rating.</span></h2>
+                <p class="lede" style="margin-bottom:28px;">Every score traces to named entities and verifiable data.
+                    The chain is explicit and auditable.</p>
+
+                <div class="pipeline fragment fade-up">
+                    <div class="pipeline-step">
+                        <div class="ps-num">01</div>
+                        <div class="ps-title">Ingest Reports</div>
+                        <div class="ps-desc">LLM extracts banks, %, jurisdictions from PDFs</div>
+                    </div>
+                    <div class="pipeline-step">
+                        <div class="ps-num">02</div>
+                        <div class="ps-title">Build Graph</div>
+                        <div class="ps-desc">Map counterparties to geography + asset class</div>
+                    </div>
+                    <div class="pipeline-step">
+                        <div class="ps-num">03</div>
+                        <div class="ps-title">Inject Signals</div>
+                        <div class="ps-desc">Weather, news, FDIC, rates stress the graph</div>
+                    </div>
+                    <div class="pipeline-step">
+                        <div class="ps-num">04</div>
+                        <div class="ps-title">Score × 6</div>
+                        <div class="ps-desc">Rules + LLM reasoning across all dimensions</div>
+                    </div>
+                    <div class="pipeline-step">
+                        <div class="ps-num">05</div>
+                        <div class="ps-title">Rate + Explain</div>
+                        <div class="ps-desc">Letter grade with full causal narrative</div>
+                    </div>
+                </div>
+
+                <div class="grid-2 fragment fade-up" style="gap:20px;">
+                    <div class="card card-accent">
+                        <div
+                            style="font-family:var(--mono); font-size:0.38em; text-transform:uppercase; letter-spacing:0.12em; color:var(--accent); font-weight:500; margin-bottom:8px;">
+                            ★ Demo Focus — Weather</div>
+                        <p style="font-size:0.5em; color:var(--text-2); line-height:1.6; margin:0; font-weight:300;">
+                            NOAA forecasts enter the graph as stress modifiers on custodian bank nodes. <strong
+                                style="color:var(--text); font-weight:500;">$165B/yr in weather damages</strong> flows
+                            through reserve banking relationships nobody is monitoring.
+                        </p>
+                    </div>
+                    <div class="card">
+                        <div
+                            style="font-family:var(--mono); font-size:0.38em; text-transform:uppercase; letter-spacing:0.12em; color:var(--text-4); margin-bottom:8px;">
+                            SVB Backtest</div>
+                        <p style="font-size:0.5em; color:var(--text-2); line-height:1.6; margin:0; font-weight:300;">
+                            Katabatic's rating drops to <strong
+                                style="color:var(--danger); font-weight:600;">C+</strong> 48 hours before USDC depegs.
+                            The engine would have caught SVB.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ═══════════════════════════════════════════════════════════
+     SLIDE 4 — Architecture
+═══════════════════════════════════════════════════════════ -->
+            <section class="top-slide" data-transition="convex">
+                <span class="eyebrow">Technical Architecture</span>
+                <h2 class="slide-h2">Signal-agnostic engine.<br>Weather is the <span class="em">first input.</span></h2>
+
+                <div style="display:flex; gap:24px; margin-top:24px; align-items:stretch; flex:1;">
+                    <div style="flex:1.1; display:flex; flex-direction:column; gap:10px;">
+                        <div class="card fragment fade-right"
+                            style="display:grid; grid-template-columns:32px 1fr; gap:0.7em; align-items:start; padding:0.75em 0.85em;">
+                            <span
+                                style="font-family:var(--mono); font-size:0.72em; font-weight:500; color:var(--accent-deep);">01</span>
+                            <div>
+                                <div style="font-size:0.62em; font-weight:500; color:var(--text); margin-bottom:3px;">
+                                    Document + Weather Ingestion</div>
+                                <p
+                                    style="font-size:0.46em; color:var(--text-2); line-height:1.55; margin:0; font-weight:300;">
+                                    Attestation PDFs → Claude extraction. NOAA forecasts, NHC tracks, FEMA zones
+                                    geocoded.</p>
+                                <div class="tech-pills"><span class="tech-pill">Claude API</span><span
+                                        class="tech-pill">PDF extraction</span><span class="tech-pill">NOAA / NHC</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card fragment fade-right"
+                            style="display:grid; grid-template-columns:32px 1fr; gap:0.7em; align-items:start; padding:0.75em 0.85em;">
+                            <span
+                                style="font-family:var(--mono); font-size:0.72em; font-weight:500; color:var(--accent-deep);">02</span>
+                            <div>
+                                <div style="font-size:0.62em; font-weight:500; color:var(--text); margin-bottom:3px;">
+                                    Geographic Knowledge Graph</div>
+                                <p
+                                    style="font-size:0.46em; color:var(--text-2); line-height:1.55; margin:0; font-weight:300;">
+                                    Stablecoin → Bank → City → Jurisdiction. Weather attaches as stress modifiers.</p>
+                                <div class="tech-pills"><span class="tech-pill">NetworkX</span><span
+                                        class="tech-pill">entity resolution</span><span class="tech-pill">weather
+                                        overlay</span></div>
+                            </div>
+                        </div>
+                        <div class="card fragment fade-right"
+                            style="display:grid; grid-template-columns:32px 1fr; gap:0.7em; align-items:start; padding:0.75em 0.85em;">
+                            <span
+                                style="font-family:var(--mono); font-size:0.72em; font-weight:500; color:var(--accent-deep);">03</span>
+                            <div>
+                                <div style="font-size:0.62em; font-weight:500; color:var(--text); margin-bottom:3px;">
+                                    Risk Scoring Engine</div>
+                                <p
+                                    style="font-size:0.46em; color:var(--text-2); line-height:1.55; margin:0; font-weight:300;">
+                                    Six-dimension weighted composite. Rules for quantifiable, LLM reasoning for
+                                    qualitative.</p>
+                                <div class="tech-pills"><span class="tech-pill">rule engine</span><span
+                                        class="tech-pill">graph propagation</span><span
+                                        class="tech-pill">LLM-as-judge</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="flex:0.9; display:flex; flex-direction:column; gap:14px;">
+                        <div class="grid-2 fragment fade-left" style="gap:14px;">
+                            <div class="card" style="text-align:center; padding:1em;">
+                                <span class="stat-number">6</span><span class="stat-label">Risk Dimensions</span>
+                            </div>
+                            <div class="card" style="text-align:center; padding:1em;">
+                                <span class="stat-number">5</span><span class="stat-label">Stablecoins Rated</span>
+                            </div>
+                            <div class="card" style="text-align:center; padding:1em;">
+                                <span class="stat-number">&lt;2s</span><span class="stat-label">Re-rating Speed</span>
+                            </div>
+                            <div class="card" style="text-align:center; padding:1em;">
+                                <span class="stat-number">0</span><span class="stat-label">Competitors</span>
+                            </div>
+                        </div>
+                        <div class="card card-accent fragment fade-up"
+                            style="flex:1; display:flex; align-items:center;">
+                            <p
+                                style="font-size:0.52em; color:var(--text-2); line-height:1.65; margin:0; font-weight:300;">
+                                <strong style="color:var(--accent-deep); font-weight:500;">Platform, not a
+                                    product.</strong><br>
+                                The architecture accepts any stress signal — weather, bank failures, rate shocks,
+                                regulation. One engine, infinite inputs.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ═══════════════════════════════════════════════════════════
+     SLIDE 5 — Market & Impact
+═══════════════════════════════════════════════════════════ -->
+            <section class="top-slide" data-transition="slide">
+                <span class="eyebrow">Market Opportunity</span>
+                <h2 class="slide-h2">Weather is the wedge.<br>The rating agency is the <span class="em">business.</span>
+                </h2>
+
+                <div class="grid-3 fragment fade-up" style="margin-top:28px; align-items:stretch;">
+                    <div class="card" style="text-align:center; padding:1.4em 1em;">
+                        <span class="stat-number" style="font-size:2.2em;">$150B+</span>
+                        <div style="font-size:0.62em; font-weight:500; color:var(--text); margin:8px 0 6px;">Unrated
+                            Reserve Assets</div>
+                        <p style="font-size:0.46em; color:var(--text-3); line-height:1.55; font-weight:300; margin:0;">
+                            No continuous, independent rating exists for stablecoin reserve banking risk</p>
+                    </div>
+                    <div class="card" style="text-align:center; padding:1.4em 1em;">
+                        <span class="stat-number" style="font-size:2.2em;">4,000+</span>
+                        <div style="font-size:0.62em; font-weight:500; color:var(--text); margin:8px 0 6px;">DeFi
+                            Treasuries</div>
+                        <p style="font-size:0.46em; color:var(--text-3); line-height:1.55; font-weight:300; margin:0;">
+                            Every protocol holding stablecoins needs counterparty risk visibility</p>
+                    </div>
+                    <div class="card" style="text-align:center; padding:1.4em 1em;">
+                        <span class="stat-number" style="font-size:2.2em;">0</span>
+                        <div style="font-size:0.62em; font-weight:500; color:var(--text); margin:8px 0 6px;">Competitors
+                        </div>
+                        <p style="font-size:0.46em; color:var(--text-3); line-height:1.55; font-weight:300; margin:0;">
+                            Nobody combines attestation extraction, geographic mapping, and real-time stress signals</p>
+                    </div>
+                </div>
+
+                <div class="fragment fade-up" style="margin-top:28px;">
+                    <div class="card card-accent" style="padding:1em 1.2em;">
+                        <h4
+                            style="font-size:0.5em; font-family:var(--mono); color:var(--accent); text-transform:uppercase; letter-spacing:0.12em; margin-bottom:14px; font-weight:500;">
+                            Revenue Model</h4>
+                        <div class="roi-row">
+                            <span class="roi-label">DeFi Protocols & DAOs</span>
+                            <span class="roi-value">API subscription · per-query pricing</span>
+                        </div>
+                        <div class="roi-row">
+                            <span class="roi-label">Institutional Investors & Funds</span>
+                            <span class="roi-value">Enterprise tier · custom dashboards</span>
+                        </div>
+                        <div class="roi-row">
+                            <span class="roi-label">Stablecoin Issuers</span>
+                            <span class="roi-value">Compliance + transparency badge</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ═══════════════════════════════════════════════════════════
+     SLIDE 6 — Live Demo
+═══════════════════════════════════════════════════════════ -->
+            <section class="top-slide" data-transition="zoom">
+                <span class="eyebrow" style="text-align:center;">Live Demo</span>
+                <h2 class="slide-h2 text-center">Katabatic in Action</h2>
+                <p
+                    style="font-size:0.52em; color:var(--text-3); text-align:center; margin-bottom:28px; font-weight:300;">
+                    Five beats. Under two minutes.</p>
+
+                <div style="display:flex; gap:24px; align-items:stretch; flex:1;">
+                    <div class="card" style="flex:1; padding:1em 1.1em; display:flex; flex-direction:column; gap:14px;">
+                        <div style="display:flex; align-items:baseline; gap:10px;">
+                            <span
+                                style="font-family:var(--mono); font-size:0.36em; color:var(--white); background:var(--accent); width:20px; height:20px; border-radius:6px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">1</span>
+                            <p
+                                style="font-size:0.52em; color:var(--text-2); line-height:1.55; margin:0; font-weight:300;">
+                                <strong style="color:var(--text); font-weight:500;">Show the dashboard.</strong> Six
+                                stablecoins rated across six dimensions.
+                            </p>
+                        </div>
+                        <div style="display:flex; align-items:baseline; gap:10px;">
+                            <span
+                                style="font-family:var(--mono); font-size:0.36em; color:var(--white); background:var(--accent); width:20px; height:20px; border-radius:6px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">2</span>
+                            <p
+                                style="font-size:0.52em; color:var(--text-2); line-height:1.55; margin:0; font-weight:300;">
+                                <strong style="color:var(--text); font-weight:500;">Drop a hurricane.</strong> Banks in
+                                the zone highlight. Two stablecoins downgrade live.
+                            </p>
+                        </div>
+                        <div style="display:flex; align-items:baseline; gap:10px;">
+                            <span
+                                style="font-family:var(--mono); font-size:0.36em; color:var(--white); background:var(--accent); width:20px; height:20px; border-radius:6px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">3</span>
+                            <p
+                                style="font-size:0.52em; color:var(--text-2); line-height:1.55; margin:0; font-weight:300;">
+                                <strong style="color:var(--text); font-weight:500;">Read the explanation.</strong> <em
+                                    style="color:var(--accent);">"USDC downgraded to B+. 12% of reserves at SE Florida
+                                    institutions."</em>
+                            </p>
+                        </div>
+                        <div style="display:flex; align-items:baseline; gap:10px;">
+                            <span
+                                style="font-family:var(--mono); font-size:0.36em; color:var(--white); background:var(--accent); width:20px; height:20px; border-radius:6px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">4</span>
+                            <p
+                                style="font-size:0.52em; color:var(--text-2); line-height:1.55; margin:0; font-weight:300;">
+                                <strong style="color:var(--text); font-weight:500;">SVB backtest.</strong> Rating drops
+                                to C+ <strong style="color:var(--danger);">48 hours before the depeg.</strong>
+                            </p>
+                        </div>
+                        <div style="display:flex; align-items:baseline; gap:10px;">
+                            <span
+                                style="font-family:var(--mono); font-size:0.36em; color:var(--white); background:var(--accent); width:20px; height:20px; border-radius:6px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">5</span>
+                            <p
+                                style="font-size:0.52em; color:var(--text-2); line-height:1.55; margin:0; font-weight:300;">
+                                <strong style="color:var(--text); font-weight:500;">Close the pitch.</strong> One
+                                signal. The platform handles all of them.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div style="flex:0.65; display:flex; flex-direction:column; gap:12px;">
+                        <div class="card card-accent"
+                            style="flex:1; padding:0.9em 1em; display:flex; flex-direction:column; justify-content:center;">
+                            <div
+                                style="font-family:var(--mono); font-size:0.38em; text-transform:uppercase; letter-spacing:0.12em; color:var(--accent); font-weight:500; margin-bottom:6px;">
+                                Scenario A · Primary</div>
+                            <div style="font-size:0.58em; font-weight:500; color:var(--text); margin-bottom:6px;">
+                                Weather-Triggered Downgrade</div>
+                            <p
+                                style="font-size:0.46em; color:var(--text-2); line-height:1.55; margin:0; font-weight:300;">
+                                Hurricane stresses FL bank nodes → rating engine downgrades → LLM explains the causal
+                                chain.</p>
+                        </div>
+                        <div class="card"
+                            style="flex:1; padding:0.9em 1em; display:flex; flex-direction:column; justify-content:center;">
+                            <div
+                                style="font-family:var(--mono); font-size:0.38em; text-transform:uppercase; letter-spacing:0.12em; color:var(--text-4); margin-bottom:6px;">
+                                Scenario B</div>
+                            <div style="font-size:0.58em; font-weight:500; color:var(--text); margin-bottom:6px;">SVB
+                                Collapse Backtest</div>
+                            <p
+                                style="font-size:0.46em; color:var(--text-2); line-height:1.55; margin:0; font-weight:300;">
+                                Real March 2023 data. Same engine. Rating drops to C+ 48 hours before depeg.</p>
+                        </div>
+                        <div class="card"
+                            style="flex:1; padding:0.9em 1em; display:flex; flex-direction:column; justify-content:center;">
+                            <div
+                                style="font-family:var(--mono); font-size:0.38em; text-transform:uppercase; letter-spacing:0.12em; color:var(--text-4); margin-bottom:6px;">
+                                Scenario C</div>
+                            <div style="font-size:0.58em; font-weight:500; color:var(--text); margin-bottom:6px;">Rate
+                                Hike Stress Test</div>
+                            <p
+                                style="font-size:0.46em; color:var(--text-2); line-height:1.55; margin:0; font-weight:300;">
+                                Rate to +3%. Bond portfolios bleed. One architecture, infinite inputs.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ═══════════════════════════════════════════════════════════
+     SLIDE 7 — The Ask
+═══════════════════════════════════════════════════════════ -->
+            <section class="top-slide" data-transition="zoom">
+                <div class="glow-a"></div>
+                <div class="glow-b"></div>
+
+                <span class="eyebrow" style="color:var(--accent-deep);">The Ask</span>
+                <h2 class="slide-h2">Weather proves the engine.<br>The vision is the <span class="em">rating
+                        agency.</span></h2>
+                <p class="lede" style="margin-bottom:32px;">If we can trace a hurricane through reserve banking
+                    relationships to produce a live downgrade with causal explanation — imagine every signal, every
+                    stablecoin, continuously rated.</p>
+
+                <div class="grid-3" style="align-items:stretch;">
+                    <div class="card fragment fade-up" data-fragment-index="1"
+                        style="display:flex; flex-direction:column;">
+                        <div style="margin-bottom:14px;">
+                            <span
+                                style="font-family:var(--mono); font-size:0.38em; letter-spacing:0.14em; text-transform:uppercase; color:var(--accent); display:block; margin-bottom:6px; font-weight:500;">What
+                                We've Built</span>
+                            <span
+                                style="font-size:1.05em; font-weight:500; color:var(--text); display:block;">End-to-End
+                                Engine</span>
+                        </div>
+                        <ul
+                            style="font-size:0.48em; color:var(--text-2); flex-grow:1; margin:0; line-height:1.7; padding-left:1.2em; list-style:disc; font-weight:300;">
+                            <li>LLM-powered attestation extraction</li>
+                            <li>Geographic knowledge graph</li>
+                            <li>Six-dimension risk scoring</li>
+                            <li>Interactive what-if simulator</li>
+                        </ul>
+                    </div>
+
+                    <div class="card card-accent fragment fade-up" data-fragment-index="2"
+                        style="display:flex; flex-direction:column;">
+                        <div style="margin-bottom:14px;">
+                            <span
+                                style="font-family:var(--mono); font-size:0.38em; letter-spacing:0.14em; text-transform:uppercase; color:var(--accent-deep); display:block; margin-bottom:6px; font-weight:500;">Use
+                                of Funds</span>
+                            <span style="font-size:1.05em; font-weight:500; color:var(--text); display:block;">Seed
+                                Round</span>
+                        </div>
+                        <ul
+                            style="font-size:0.48em; color:var(--text-2); flex-grow:1; margin:0; line-height:1.7; padding-left:1.2em; list-style:disc; font-weight:300;">
+                            <li>Expand data coverage — all major stablecoins</li>
+                            <li>Real-time signal pipeline (FDIC, CDS, news)</li>
+                            <li>API + enterprise dashboard</li>
+                            <li>Regulatory partnerships</li>
+                        </ul>
+                    </div>
+
+                    <div class="card fragment fade-up" data-fragment-index="3"
+                        style="display:flex; flex-direction:column;">
+                        <div style="margin-bottom:14px;">
+                            <span
+                                style="font-family:var(--mono); font-size:0.38em; letter-spacing:0.14em; text-transform:uppercase; color:var(--accent); display:block; margin-bottom:6px; font-weight:500;">Why
+                                Now</span>
+                            <span style="font-size:1.05em; font-weight:500; color:var(--text); display:block;">Market
+                                Timing</span>
+                        </div>
+                        <ul
+                            style="font-size:0.48em; color:var(--text-2); flex-grow:1; margin:0; line-height:1.7; padding-left:1.2em; list-style:disc; font-weight:300;">
+                            <li>Post-SVB: market demands transparency</li>
+                            <li>Regulatory scrutiny accelerating</li>
+                            <li>DeFi treasuries need risk tooling</li>
+                            <li>LLM capabilities now enable the engine</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ═══════════════════════════════════════════════════════════
+     SLIDE 8 — Questions
+═══════════════════════════════════════════════════════════ -->
+            <section data-transition="zoom" style="text-align:center;">
+                <div class="glow-a"></div>
+                <div class="glow-b"></div>
+
+                <h1 class="slide-hero" style="margin:0;">Questions<span
+                        style="color:var(--accent); font-weight:600;">.</span></h1>
+                <p style="font-size:0.58em; color:var(--text-3); margin-top:20px; font-weight:300;">
+                    Moody's rates bonds. We rate stablecoin reserves.
+                </p>
+            </section>
+
+        </div>
+    </div>
+
+    <script type="module">
+        import Reveal from 'https://cdn.jsdelivr.net/npm/reveal.js@5.2.1/dist/reveal.esm.js';
+
+        let deck = new Reveal({
+            hash: true,
+            transition: 'convex',
+            backgroundTransition: 'fade',
+            center: false,
+            controls: false,
+            progress: false,
+            slideNumber: false,
+            width: 1280,
+            height: 800,
+            margin: 0.04,
+            minScale: 0.1,
+            maxScale: 3.0,
+            backgroundColor: '#f4f3fa',
+        });
+
+        deck.initialize().then(() => {
+            const total = deck.getTotalSlides();
+            const pad = n => String(n).padStart(2, '0');
+            const dots = document.getElementById('navDots');
+
+            for (let i = 0; i < total; i++) {
+                const d = document.createElement('div');
+                d.className = 'nav-dot' + (i === 0 ? ' active' : '');
+                d.addEventListener('click', e => { e.stopPropagation(); e.preventDefault(); deck.slide(i, 0, -1); });
+                dots.appendChild(d);
+            }
+
+            function updateNav() {
+                const idx = deck.getIndices().h;
+                document.getElementById('progress').style.width = `${((idx + 1) / total) * 100}%`;
+                document.getElementById('navCounter').textContent = `${pad(idx + 1)} / ${pad(total)}`;
+                document.querySelectorAll('.nav-dot').forEach((d, i) =>
+                    d.classList.toggle('active', i === idx));
+            }
+
+            deck.on('slidechanged', updateNav);
+            updateNav();
+
+            document.getElementById('prevBtn').addEventListener('click', e => {
+                e.stopPropagation(); e.preventDefault();
+                deck.prev();
+            });
+            document.getElementById('nextBtn').addEventListener('click', e => {
+                e.stopPropagation(); e.preventDefault();
+                deck.next();
+            });
+            document.getElementById('hint').addEventListener('click', () => {
+                if (!document.fullscreenElement) {
+                    document.documentElement.requestFullscreen().catch(() => { });
+                } else {
+                    document.exitFullscreen();
+                }
+            });
+        });
+
+        document.addEventListener('fullscreenchange', () => {
+            document.body.classList.toggle('is-fullscreen', !!document.fullscreenElement);
+        });
+
+        // Keep screen awake
+        let wakeLock = null;
+        async function requestWakeLock() {
+            if ('wakeLock' in navigator) {
+                try { wakeLock = await navigator.wakeLock.request('screen'); } catch (e) { }
+            }
+        }
+        document.addEventListener('visibilitychange', () => {
+            if (document.visibilityState === 'visible') requestWakeLock();
+        });
+        setInterval(() => { }, 10000);
+        requestWakeLock();
+    </script>
+</body>
+
+</html>
