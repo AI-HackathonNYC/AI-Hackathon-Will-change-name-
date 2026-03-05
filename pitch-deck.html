@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>katabatic. — Cornell AI Hackathon 2026</title>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500&family=Outfit:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500&family=Inter:wght@300;400;500;600;700&family=Outfit:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.2.1/dist/reveal.css">
 <style>
 /* ── Design tokens ── */
@@ -26,8 +26,8 @@
   --text-2:        rgba(255,255,255,0.58);
   --text-3:        rgba(255,255,255,0.33);
   --text-4:        rgba(255,255,255,0.17);
-  --mono:          'IBM Plex Mono', monospace;
-  --sans:          'Outfit', sans-serif;
+  --mono:          'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --sans:          'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   --danger:        #f05252;
   --danger-glow:   rgba(240,82,82,0.22);
   --success:       #34d399;
@@ -74,11 +74,11 @@ html, body {
 .sw {
   position:absolute; inset:0;
   display:flex; flex-direction:column;
-  justify-content:flex-start; align-items:stretch;
+  justify-content:flex-start; align-items:start;
   box-sizing:border-box;
-  padding:18px 36px 20px;
+  padding:28px 52px 28px;
   overflow:hidden;
-  font-size:13px;
+  font-size:15px;
   background:var(--bg);
 }
 
@@ -108,27 +108,27 @@ html, body {
 
 /* ── Typography ── */
 .ey {
-  font-family:var(--mono); font-size:10px; letter-spacing:0.22em;
+  font-family:var(--mono); font-size:12px; letter-spacing:0.22em;
   text-transform:uppercase; color:var(--accent-soft); font-weight:400;
-  margin-bottom:8px; display:flex; align-items:center; gap:9px;
+  margin-bottom:14px; display:flex; align-items:center; gap:9px;
 }
 .ey::before {
   content:''; display:inline-block; width:18px; height:1px;
   background:linear-gradient(90deg,var(--accent),transparent);
   flex-shrink:0;
 }
-.h2  { font-size:30px; line-height:1.1; letter-spacing:-0.025em; margin-bottom:8px; font-weight:400; }
+.h2  { font-size:clamp(28px, 3.2vw, 42px); line-height:1.1; letter-spacing:-0.025em; margin-bottom:16px; font-weight:600; }
 .em  { color:var(--accent-soft); }
 .emr { color:var(--danger); }
-.sub { font-size:16px; color:var(--text-2); line-height:1.65; max-width:680px; font-weight:300; margin-bottom:8px; }
+.sub { font-size:18px; color:var(--text-2); line-height:1.65; max-width:680px; font-weight:300; margin-bottom:10px; }
 .tc  { text-align:center; }
 
 /* ── Glass cards ── */
 .c {
   background:var(--surface);
   border:1px solid var(--border);
-  border-radius:14px;
-  padding:8px 12px;
+  border-radius:20px;
+  padding:16px 20px;
   box-shadow:var(--card-shadow);
   backdrop-filter:blur(24px);
   -webkit-backdrop-filter:blur(24px);
@@ -141,25 +141,25 @@ html, body {
 }
 
 /* ── Grids ── */
-.g2 { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
-.g3 { display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px; }
+.g2 { display:grid; grid-template-columns:1fr 1fr; gap:14px; align-items:start; align-content:start; }
+.g3 { display:grid; grid-template-columns:1fr 1fr 1fr; gap:14px; align-items:start; align-content:start; }
 
 /* ── Stats ── */
 .sn {
-  font-family:var(--sans); font-size:36px; font-weight:600;
+  font-family:var(--sans); font-size:46px; font-weight:600;
   color:var(--accent-bright); line-height:1; margin-bottom:3px;
   letter-spacing:-0.03em;
   text-shadow:0 0 28px var(--accent-glow);
 }
-.sl { font-family:var(--mono); font-size:10px; color:var(--text-3); letter-spacing:0.12em; text-transform:uppercase; margin-bottom:4px; }
-.ct { font-size:15px; color:var(--text-2); line-height:1.6; margin:4px 0 0; font-weight:300; }
-.clabel { font-family:var(--mono); font-size:10px; color:var(--text-4); text-transform:uppercase; letter-spacing:0.1em; margin-bottom:6px; }
+.sl { font-family:var(--mono); font-size:11px; color:var(--text-3); letter-spacing:0.12em; text-transform:uppercase; margin-bottom:4px; }
+.ct { font-size:14px; color:var(--text-2); line-height:1.6; margin:4px 0 0; font-weight:300; }
+.clabel { font-family:var(--mono); font-size:11px; color:var(--text-4); text-transform:uppercase; letter-spacing:0.1em; margin-bottom:6px; }
 
 /* ── Pipeline ── */
-.pipe { display:grid; grid-template-columns:repeat(5,1fr); gap:4px; margin:8px 0; }
+.pipe { display:grid; grid-template-columns:repeat(5,1fr); gap:10px; margin:8px 0; }
 .ps {
   background:var(--surface); border:1px solid var(--border);
-  padding:12px 10px; position:relative;
+  padding:18px 14px; position:relative;
   backdrop-filter:blur(20px);
 }
 .ps:first-child { border-radius:8px 0 0 8px; }
@@ -171,15 +171,15 @@ html, body {
 }
 .ps:last-child::after { display:none; }
 .pn  { font-family:var(--mono); font-size:11px; color:var(--text-4); letter-spacing:0.06em; margin-bottom:2px; }
-.pt  { font-size:13px; font-weight:500; color:var(--text); margin:2px 0 3px; }
-.pd  { font-family:var(--mono); font-size:11px; color:var(--text-3); line-height:1.4; }
+.pt  { font-size:15px; font-weight:500; color:var(--text); margin:2px 0 3px; }
+.pd  { font-family:var(--mono); font-size:12px; color:var(--text-3); line-height:1.4; }
 
 /* ── Pills ── */
 .pills { display:flex; flex-wrap:wrap; gap:4px; margin-top:7px; }
 .pill {
-  font-family:var(--mono); font-size:10px; color:var(--accent-soft);
+  font-family:var(--mono); font-size:11px; color:var(--accent-soft);
   background:rgba(123,111,196,0.08); border:1px solid rgba(123,111,196,0.15);
-  padding:3px 8px; border-radius:4px; letter-spacing:0.04em;
+  padding:5px 12px; border-radius:8px; letter-spacing:0.04em;
 }
 
 /* ── ROI rows ── */
@@ -191,33 +191,33 @@ html, body {
 /* ── Dimension rows ── */
 .dr {
   display:grid; grid-template-columns:20px 1fr 42px;
-  align-items:start; gap:6px; padding:4px 0;
+  align-items:start; gap:6px; padding:7px 0;
   border-bottom:1px solid rgba(255,255,255,0.04);
 }
 .dr:last-child { border-bottom:none; }
 .di  { font-family:var(--mono); font-size:10px; color:var(--text-4); margin-top:2px; }
-.dn2 { font-size:14px; color:var(--text); font-weight:400; }
-.dd  { font-size:12px; color:var(--text-3); line-height:1.4; margin-top:2px; }
+.dn2 { font-size:15px; color:var(--text); font-weight:400; }
+.dd  { font-size:13px; color:var(--text-3); line-height:1.4; margin-top:2px; }
 .dm  { font-family:var(--mono); font-size:12px; color:var(--text-3); line-height:1.3; }
 .dw  { font-family:var(--mono); font-size:11px; font-weight:500; color:var(--accent-soft); text-align:right; margin-top:2px; }
 
 /* ── Output bands ── */
 .br {
   display:grid; grid-template-columns:70px 10px 84px 1fr;
-  align-items:center; gap:6px; padding:4px 0;
+  align-items:center; gap:6px; padding:7px 0;
   border-bottom:1px solid rgba(255,255,255,0.04);
 }
 .br:last-child { border-bottom:none; }
-.bs { font-family:var(--mono); font-size:11px; font-weight:500; }
+.bs { font-family:var(--mono); font-size:12px; font-weight:500; }
 .bd { width:7px; height:7px; border-radius:50%; }
-.bl { font-family:var(--mono); font-size:11px; color:var(--text-2); font-weight:500; }
-.bc { font-size:11px; color:var(--text-3); }
+.bl { font-family:var(--mono); font-size:12px; color:var(--text-2); font-weight:500; }
+.bc { font-size:12px; color:var(--text-3); }
 
 /* ── Formula ── */
 .formula {
-  font-family:var(--mono); font-size:12px; color:var(--text-2);
+  font-family:var(--mono); font-size:13px; color:var(--text-2);
   background:rgba(0,0,0,0.38); border:1px solid rgba(123,111,196,0.14);
-  border-radius:12px; padding:11px 16px; line-height:1.9;
+  border-radius:16px; padding:16px 20px; line-height:1.9;
   position:relative;
 }
 .formula::before {
@@ -230,7 +230,7 @@ html, body {
 .fo { color:var(--text-4); }
 
 /* ── WAM bar ── */
-.wbar { display:flex; height:22px; border-radius:5px; overflow:hidden; gap:2px; margin:5px 0; }
+.wbar { display:flex; height:28px; border-radius:5px; overflow:hidden; gap:2px; margin:5px 0; }
 .ws {
   display:flex; align-items:center; justify-content:center;
   font-family:var(--mono); font-size:11px;
@@ -241,8 +241,8 @@ html, body {
 .badge {
   display:inline-flex; align-items:center; gap:6px;
   background:rgba(52,211,153,0.08); border:1px solid rgba(52,211,153,0.22);
-  border-radius:5px; padding:3px 10px;
-  font-family:var(--mono); font-size:11px; color:var(--success);
+  border-radius:8px; padding:5px 12px;
+  font-family:var(--mono); font-size:12px; color:var(--success);
   letter-spacing:0.06em;
   box-shadow:0 0 12px rgba(52,211,153,0.08);
 }
@@ -256,8 +256,8 @@ html, body {
 /* ── Output box ── */
 .obox {
   background:rgba(0,0,0,0.32); border:1px solid rgba(123,111,196,0.12);
-  border-radius:6px; padding:7px 11px;
-  font-family:var(--mono); font-size:11px; color:var(--text-3); line-height:1.9;
+  border-radius:6px; padding:10px 16px;
+  font-family:var(--mono); font-size:13px; color:var(--text-3); line-height:1.9;
 }
 .ov  { color:var(--accent-bright); font-weight:500; font-size:12px; }
 .ovr { color:var(--danger); font-weight:500; font-size:12px; text-shadow:0 0 14px var(--danger-glow); }
@@ -265,7 +265,7 @@ html, body {
 /* ── Check list ── */
 .chk { display:flex; align-items:center; gap:8px; padding:2px 0; }
 .chk-v { color:var(--success); font-family:var(--mono); font-size:11px; }
-.chk span { font-size:12px; color:var(--text-2); }
+.chk span { font-size:14px; color:var(--text-2); }
 
 /* ── Timeline ── */
 .tl { display:flex; flex-direction:column; gap:0; }
@@ -274,20 +274,20 @@ html, body {
 .tli-dot { width:9px; height:9px; border-radius:50%; flex-shrink:0; margin-top:4px; border:2px solid var(--accent); }
 .tli-dot.active { background:var(--accent); box-shadow:0 0 10px var(--accent-glow); }
 .tli-dot.done { border-color:var(--success); background:var(--success); box-shadow:0 0 10px var(--success-glow); }
-.tli-date { font-family:var(--mono); font-size:11px; color:var(--text-4); min-width:80px; padding-top:1px; }
-.tli-txt { font-size:14px; color:var(--text-2); line-height:1.5; }
+.tli-date { font-family:var(--mono); font-size:12px; color:var(--text-4); min-width:80px; padding-top:1px; }
+.tli-txt { font-size:16px; color:var(--text-2); line-height:1.5; }
 .tli-txt strong { color:var(--text); font-weight:500; }
 
 /* ── Scenario cards ── */
 .scn { flex:1; display:flex; flex-direction:column; gap:5px; padding:12px 14px; }
 .scn-cat { font-family:var(--mono); font-size:10px; color:var(--text-4); letter-spacing:0.12em; text-transform:uppercase; }
-.scn-title { font-size:17px; font-weight:500; color:var(--text); margin:3px 0 5px; line-height:1.2; }
-.scn-sub { font-size:14px; color:var(--text-3); line-height:1.5; }
+.scn-title { font-size:22px; font-weight:500; color:var(--text); margin:3px 0 5px; line-height:1.2; }
+.scn-sub { font-size:15px; color:var(--text-3); line-height:1.5; }
 
 /* ── Team ── */
-.team-name { font-size:21px; font-weight:500; color:var(--text); letter-spacing:-0.02em; }
+.team-name { font-size:26px; font-weight:500; color:var(--text); letter-spacing:-0.02em; }
 .team-role { font-family:var(--mono); font-size:10px; color:var(--accent-soft); letter-spacing:0.08em; text-transform:uppercase; margin-top:2px; }
-.team-bio { font-size:14px; color:var(--text-2); line-height:1.55; margin-top:6px; font-weight:300; }
+.team-bio { font-size:15px; color:var(--text-2); line-height:1.55; margin-top:6px; font-weight:300; }
 
 /* ═══════════════════
    HERO
@@ -477,7 +477,7 @@ body.fs .snotes { display:none !important; }
 <div class="pbar" id="pbar">
   <div class="pbar-l">
     <button class="pbar-btn" id="prev">←</button>
-    <span class="pbar-cnt" id="cnt">1 / 9</span>
+    <span class="pbar-cnt" id="cnt">1 / 10</span>
     <button class="pbar-btn" id="next">→</button>
   </div>
   <div class="pbar-c"><div class="pbar-dots" id="dots"></div></div>
@@ -526,10 +526,10 @@ body.fs .snotes { display:none !important; }
 
 <!-- ═══════ 2 — PROBLEM ═══════ -->
 <section data-transition="slide"
-  data-notes="<span class='nt'>0:15–0:40 · 25s</span><strong>Set the stakes fast.</strong> '$150 billion in stablecoin reserves backed by real banks. No one is watching continuously.' Hit the SVB stat hard: '$3.3 billion at SVB. Attestation said fine two weeks prior. Then $0.87.' The root cause: 'This was not a credit failure — it was a duration mismatch. SVB held 2-year bonds against daily redemptions. Stablecoin reserves carry the same structural risk right now.'">
+  data-notes="<span class='nt'>0:15–0:40 · 25s</span><strong>Set the stakes fast.</strong> '$150 billion in stablecoin reserves backed by real banks. No one is stress-testing them.' Hit SVB hard: '$3.3 billion at SVB. Attestation said fine two weeks prior. Then $0.87.' Root cause: 'This was not a credit failure — it was a duration mismatch. SVB held 2-year bonds against daily redemptions. Attestations are envelopes, not data. Stablecoin reserves carry the same structural risk right now.'">
 <div class="sw">
   <div class="ey">The Problem</div>
-  <h2 class="h2">$150B in stablecoin reserves.<br>No one is <span class="emr">watching continuously.</span></h2>
+  <h2 class="h2">$150B in stablecoins.<br>No <span class="emr">stress testing.</span></h2>
 
   <div class="c cr" style="padding:12px 16px;margin-bottom:10px;">
     <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
@@ -542,73 +542,58 @@ body.fs .snotes { display:none !important; }
         <div style="font-size:14px;color:var(--text-2);line-height:1.6;font-weight:300;">Attestation said <strong style="color:var(--text);font-weight:500;">fine</strong> two weeks prior.<br>USDC depegged to <strong style="color:var(--danger);font-weight:600;">$0.87</strong>.<br>Invisible until it wasn't.</div>
         <div style="margin-top:8px;"><span class="badge badge-a">Root cause: duration mismatch — not credit risk</span></div>
       </div>
-      <!-- Live monitor animation -->
-      <div style="flex-shrink:0;display:flex;flex-direction:column;gap:3px;border-left:1px solid rgba(240,82,82,0.15);padding-left:16px;">
-        <div style="font-family:var(--mono);font-size:9px;color:rgba(240,82,82,0.45);letter-spacing:0.1em;margin-bottom:4px;">LIVE MONITOR — NO DATA</div>
-        <div class="mon-row" style="animation-delay:0s"></div>
-        <div class="mon-row" style="animation-delay:0.3s"></div>
-        <div class="mon-row" style="animation-delay:0.6s"></div>
-        <div class="mon-row" style="animation-delay:0.9s"></div>
-        <div class="mon-row" style="animation-delay:1.2s"></div>
+      <div style="flex-shrink:0;border-left:1px solid rgba(240,82,82,0.15);padding-left:16px;">
+        <div style="font-family:var(--mono);font-size:9px;color:rgba(240,82,82,0.45);letter-spacing:0.1em;margin-bottom:6px;">ATTESTATION SAID:</div>
+        <div style="font-size:13px;color:var(--text-3);line-height:1.6;font-weight:300;font-style:italic;">"Held at a US-regulated<br>bank with $100B+ assets"</div>
+        <div style="font-family:var(--mono);font-size:10px;color:rgba(240,82,82,0.55);margin-top:6px;">→ envelope, not data</div>
       </div>
     </div>
   </div>
 
-  <div class="g3" style="flex:1;min-height:0;align-items:stretch;">
-    <div class="c" style="display:flex;flex-direction:column;justify-content:space-between;">
-      <div>
-        <div class="sn">$150B+</div>
-        <div class="sl">Unmonitored Reserves</div>
-      </div>
-      <p class="ct">Real banking relationships changing monthly. Zero continuous liquidity monitoring exists today.</p>
+  <div class="g3" style="margin-top:6px;">
+    <div class="c">
+      <div class="sn">$150B+</div>
+      <div class="sl">Unstressed Reserve Assets</div>
+      <p class="ct">Real banking relationships with hidden duration risk. No one models what happens under rate shocks, weather events, or liquidity freezes.</p>
     </div>
-    <div class="c" style="display:flex;flex-direction:column;justify-content:space-between;">
-      <div>
-        <div class="sn">30 Days</div>
-        <div class="sl">Between Attestations</div>
-      </div>
-      <p class="ct">Rate shocks, bank failures, hurricanes — all invisible between monthly snapshots.</p>
+    <div class="c">
+      <div class="sn">$3.3B</div>
+      <div class="sl">USDC Held at SVB</div>
+      <p class="ct">SVB held 2-year treasuries when rates spiked — duration mismatch. A stress test would have flagged the liquidity freeze 48 hours early.</p>
     </div>
-    <div class="c" style="display:flex;flex-direction:column;justify-content:space-between;">
-      <div>
-        <div class="sn" style="color:var(--danger);text-shadow:0 0 28px var(--danger-glow);">0</div>
-        <div class="sl">Continuous Risk Monitors</div>
-      </div>
-      <p class="ct">No platform continuously tracks WAM, ops exposure, and weather tail-risk. Until now.</p>
+    <div class="c">
+      <div class="sn">30 Days</div>
+      <div class="sl">Between Attestations</div>
+      <p class="ct">Rate shocks, bank failures, hurricanes — all invisible between monthly snapshots. Zero continuous risk monitors exist today.</p>
     </div>
   </div>
 </div>
 </section>
 
-<!-- ═══════ 3 — SOLUTION ═══════ -->
+<!-- ═══════ 3 — STRESS ENGINE ═══════ -->
 <section data-transition="slide"
-  data-notes="<span class='nt'>0:40–1:00 · 20s</span><strong>Plain English first.</strong> 'We built the Bloomberg Terminal for stablecoin reserve risk. Not a rating agency — we avoid NRSRO liability entirely. We are a What-If simulator. Input a scenario — hurricane, rate hike, bank failure — and we output: 72-hour redemption latency and 88% liquidity coverage. Operational intelligence that DAO treasuries can actually act on.'">
+  data-notes="<span class='nt'>0:40–1:00 · 20s</span><strong>Plain English first.</strong> 'Attestations are inference puzzles, not ground truth. We cross-reference vague disclosures against FDIC data and on-chain flows. Five steps: resolve who the actual counterparty is, map it geographically, compute WAM, apply weather and rate multipliers, output operational data — not a letter grade.'">
 <div class="sw">
-  <div class="ey">The Solution</div>
-  <h2 class="h2">The Bloomberg Terminal<br>for <span class="em">stablecoin reserve risk.</span></h2>
+  <div class="ey">Stress Engine</div>
+  <h2 class="h2">From opaque PDF to real-time <span class="em">liquidity stress score.</span></h2>
 
-  <div class="c ca cg" style="padding:12px 16px;margin-bottom:10px;">
-    <div class="clabel" style="color:var(--accent-soft);">Katabatic — What It Is</div>
-    <div style="font-size:14px;color:var(--text);line-height:1.65;font-weight:300;margin-top:3px;">
-      An always-on <strong style="font-weight:500;">Liquidity Stress Score engine</strong> for stablecoin reserves.
-      Not a rating agency. A <strong style="font-weight:500;">What-If simulator.</strong>
-      Input a scenario → Get operational outputs:
-      <span style="color:var(--accent-soft);font-weight:500;">"Redemption latency: 72h. Coverage: 88%."</span>
+  <div class="c ca" style="padding:11px 14px;margin-bottom:10px;">
+    <div style="font-size:13px;color:var(--text-2);line-height:1.6;font-weight:300;">
+      Attestations say <em style="color:var(--text-3);">"US-regulated bank with $100B+ in assets"</em> — that's an envelope, not data.
+      We treat them as <strong style="color:var(--text);font-weight:500;">inference puzzles</strong> — cross-referencing vague disclosures against FDIC Call Reports and on-chain Mint/Burn flows to infer the actual counterparty.
     </div>
-    <div style="margin-top:8px;font-size:11px;color:var(--text-3);">Not a letter grade you can get sued over — operational intelligence DAOs can act on. No NRSRO liability.</div>
   </div>
 
-  <!-- 5-step pipeline -->
-  <div class="pipe" style="flex:1;min-height:0;">
+  <div class="pipe" style="margin-top:8px;">
     <div class="ps">
       <div class="pn">01 · INGEST</div>
       <div class="pt">Resolve Entities</div>
-      <div class="pd">LLM infers counterparties from vague attestation PDFs + FDIC Call Reports</div>
+      <div class="pd">LLM infers probable counterparties from vague attestation PDFs + FDIC Call Reports</div>
     </div>
     <div class="ps">
       <div class="pn">02 · MAP</div>
       <div class="pt">Build Graph</div>
-      <div class="pd">Banks to geography, LTV ratios, WAM, data center corridors</div>
+      <div class="pd">Banks to geography, LTV ratios, WAM, data center corridors (AWS/Azure zones)</div>
     </div>
     <div class="ps">
       <div class="pn">03 · SCORE</div>
@@ -627,7 +612,6 @@ body.fs .snotes { display:none !important; }
     </div>
   </div>
 
-  <!-- Compact output row -->
   <div class="obox" style="margin-top:8px;display:flex;gap:28px;align-items:center;">
     <span style="color:var(--text-4);">scenario output →</span>
     <span><span style="color:var(--text-3);">score </span><span class="ovr">68 / 100</span></span>
@@ -638,12 +622,12 @@ body.fs .snotes { display:none !important; }
 </div>
 </section>
 
-<!-- ═══════ 4 — ENGINE ═══════ -->
+<!-- ═══════ 4 — SIX DIMENSIONS ═══════ -->
 <section data-transition="slide"
-  data-notes="<span class='nt'>1:00–1:30 · 30s</span><strong>Core insight.</strong> 'WAM — Weighted Average Maturity — is the primary signal. Weather and rate hikes are tail-risk multipliers on an already-fragile balance sheet.' Show the SVB bar: 94% in 2-year bonds — that is the duration mismatch. Show the 6 scoring dimensions. 'We combine rules-based WAM scoring with multi-model LLM consensus — Claude and GPT independently score counterparty health. If they agree, the signal is confirmed.'">
+  data-notes="<span class='nt'>1:00–1:25 · 25s</span><strong>Core insight.</strong> 'WAM — Weighted Average Maturity — is the primary signal. SVB held 2-year bonds against daily redemptions — that is the failure mode. Weather and rate hikes are tail-risk multipliers on an already-fragile balance sheet.' Walk the 6 dimensions. 'Dimension 2 is key: attestations say US-regulated bank — our probabilistic entity resolver cross-references 10-K filings to say BNY Mellon, 92% confidence. Then we combine rules-based WAM scoring with multi-model LLM consensus.'">
 <div class="sw">
-  <div class="ey">The Engine</div>
-  <h2 class="h2">WAM is primary. Weather is the <span class="em">multiplier.</span></h2>
+  <div class="ey">Six Dimensions</div>
+  <h2 class="h2">Duration risk is primary. Weather is the <span class="em">force multiplier.</span></h2>
 
   <div class="formula" style="margin-bottom:10px;">
     <span class="fv">Stress Score</span> <span class="fo">=</span>
@@ -652,8 +636,7 @@ body.fs .snotes { display:none !important; }
     <span class="fo"> × </span><span class="fv">Concentration Factor</span>
   </div>
 
-  <div style="display:flex;gap:12px;flex:1;min-height:0;align-items:stretch;">
-    <!-- Left column -->
+  <div style="display:flex;gap:12px;flex:1;min-height:0;align-items:start;">
     <div style="flex:1;display:flex;flex-direction:column;gap:10px;min-height:0;">
       <div class="c" style="padding:12px 14px;">
         <div class="clabel">SVB March 2023 — Portfolio WAM · The Failure Mode</div>
@@ -675,15 +658,14 @@ body.fs .snotes { display:none !important; }
         <div class="br"><span class="bs" style="color:var(--danger);">76–100</span><div class="bd" style="background:var(--danger);box-shadow:0 0 5px var(--danger-glow);"></div><span class="bl">Latency 72h+</span><span class="bc">Coverage &lt;85%  ·  Critical</span></div>
       </div>
     </div>
-    <!-- Right column -->
     <div style="flex:1;display:flex;flex-direction:column;gap:10px;min-height:0;">
-      <div class="c" style="flex:1;padding:12px 14px;min-height:0;">
+      <div class="c" style="flex:1;padding:12px 14px;min-height:0;overflow:hidden;">
         <div class="clabel">6 Dimensions → Liquidity Stress Score</div>
         <div class="dr"><span class="di">01</span><div><div class="dn2">Duration Risk (WAM)</div><div class="dd">Longer WAM = more fragile. SVB held 2-year bonds against daily redemptions — our engine flags this weeks before a run.</div></div><span class="dw">30%</span></div>
-        <div class="dr"><span class="di">02</span><div><div class="dn2">Reserve Transparency</div><div class="dd">Cross-references XBRL/OCC feeds with on-chain Mint/Burn flows. Flags custodian cash divergence >5%.</div></div><span class="dw">20%</span></div>
-        <div class="dr"><span class="di">03</span><div><div class="dn2">Geo + Ops Concentration</div><div class="dd">HHI of bank locations + AWS/Azure DC corridor overlap. Hurricane hits NoVA → redemption processing freezes.</div></div><span class="dw">15%</span></div>
-        <div class="dr"><span class="di">04</span><div><div class="dn2">Weather Tail-Risk</div><div class="dd">Storm track × FDIC LTV ratios. Hurricane hits FL economy → LTV deterioration → bank liquidity freeze.</div></div><span class="dw">15%</span></div>
-        <div class="dr"><span class="di">05</span><div><div class="dn2">Counterparty Health</div><div class="dd">FDIC watch list + LTV ratios. Claude + GPT jury — if models disagree >15pts, signal is flagged for review.</div></div><span class="dw">15%</span></div>
+        <div class="dr"><span class="di">02</span><div><div class="dn2">Reserve Transparency</div><div class="dd">Probabilistic entity resolver cross-references FDIC + 10-K filings + on-chain Mint/Burn. Infers actual counterparty: <em style="color:var(--accent-soft);">"BNY Mellon, 92% confidence."</em> Flags divergence &gt;5%.</div></div><span class="dw">20%</span></div>
+        <div class="dr"><span class="di">03</span><div><div class="dn2">Geo + Ops Concentration</div><div class="dd">HHI of bank locations + AWS/Azure DC corridor overlap. Hurricane hits NoVA → treasury ops freeze, even if the bank is fine.</div></div><span class="dw">15%</span></div>
+        <div class="dr"><span class="di">04</span><div><div class="dn2">Weather Tail-Risk</div><div class="dd">Storm track × FDIC LTV ratios. Hurricane hits FL local economy → LTV deterioration → bank liquidity squeeze.</div></div><span class="dw">15%</span></div>
+        <div class="dr"><span class="di">05</span><div><div class="dn2">Counterparty Health</div><div class="dd">FDIC watch list + LTV ratios. Claude + GPT jury — if models disagree &gt;15pts, signal is flagged for review.</div></div><span class="dw">15%</span></div>
         <div class="dr"><span class="di">06</span><div><div class="dn2">Peg Stability</div><div class="dd">Historical depeg events + mint/burn velocity. Lagging indicator — useful for backtest validation.</div></div><span class="dw">5%</span></div>
       </div>
       <div class="c ca" style="padding:12px 14px;">
@@ -707,13 +689,12 @@ body.fs .snotes { display:none !important; }
 
 <!-- ═══════ 5 — WHY NOW ═══════ -->
 <section data-transition="slide"
-  data-notes="<span class='nt'>1:30–1:55 · 25s</span><strong>This is the market timing hook.</strong> 'Before 2026, this engine was impossible — stablecoin issuers published PDFs on a 30-day lag. The GENIUS Act changed everything. PPSIs must now file XBRL and OCC-standardized API feeds. For the first time, the data exists to run this engine continuously. We have the pipeline. We are first.' This answers the VC question: why hasn't someone done this before?">
+  data-notes="<span class='nt'>1:25–1:50 · 25s</span><strong>This is the market timing hook.</strong> 'Before 2026, this engine was impossible — stablecoin issuers published PDFs on a 30-day lag. The GENIUS Act changed everything. PPSIs must now file XBRL and OCC-standardized API feeds. For the first time, the data exists to run this engine continuously. We have the pipeline. We are first.' This answers the VC question: why hasn't someone done this before?">
 <div class="sw">
   <div class="ey">Why Now</div>
   <h2 class="h2">The GENIUS Act 2026<br>just <span class="em">created this market.</span></h2>
 
-  <div style="display:flex;gap:12px;flex:1;min-height:0;align-items:stretch;">
-    <!-- Left: timeline -->
+  <div style="display:flex;gap:12px;flex:1;min-height:0;align-items:start;">
     <div style="flex:1.3;display:flex;flex-direction:column;gap:10px;min-height:0;">
       <div class="c" style="flex:1;padding:12px 14px;min-height:0;">
         <div class="clabel">Market Catalyst — Regulatory Timeline</div>
@@ -736,7 +717,6 @@ body.fs .snotes { display:none !important; }
         </div>
       </div>
     </div>
-    <!-- Right: why card + stats -->
     <div style="flex:1;display:flex;flex-direction:column;gap:10px;min-height:0;">
       <div class="c ca cg" style="flex:1;padding:12px 14px;display:flex;flex-direction:column;justify-content:center;gap:10px;">
         <div class="clabel" style="color:var(--accent-soft);">Why hasn't someone done this before?</div>
@@ -767,65 +747,52 @@ body.fs .snotes { display:none !important; }
 </div>
 </section>
 
-<!-- ═══════ 6 — MARKET ═══════ -->
+<!-- ═══════ 6 — POSITIONING ═══════ -->
 <section data-transition="slide"
-  data-notes="<span class='nt'>1:55–2:25 · 30s</span><strong>Bold numbers, fast.</strong> '$200 billion total stablecoin market. 4,000 DeFi treasuries. No competitor combines WAM, knowledge graphs, data center ops risk, and multi-model consensus.' Revenue: 'API subscriptions starting at $2K/month for DAO treasuries, $50K+ per year for institutional risk desks, compliance APIs for issuers.' Moat: 'First-mover in a regulation-mandated market with a defensible multi-signal engine.'">
+  data-notes="<span class='nt'>1:50–2:15 · 25s</span><strong>The infrastructure analogy.</strong> 'On-chain data platforms became the authoritative source for on-chain behavioral data — the system of record that Visa and a16z integrate. Katabatic is building the equivalent layer for off-chain reserve risk. Same infrastructure model. Orthogonal data set. When a DAO treasury needs to know the structural fragility of a stablecoin reserve, Katabatic is the score they integrate — not a dashboard they view.'">
 <div class="sw">
-  <div class="ey">Market &amp; Business Model</div>
-  <h2 class="h2">A new compliance category.<br>Zero <span class="em">direct competitors.</span></h2>
+  <div class="ey">Stack Positioning</div>
+  <h2 class="h2">On-chain shows the flows. Katabatic shows <span class="em">what's about to break.</span></h2>
 
   <div class="g3" style="margin-bottom:10px;">
-    <div class="c" style="text-align:center;padding:10px 10px;">
-      <div class="sn" style="font-size:30px;">$200B+</div>
-      <div class="sl">Stablecoin Market (TAM)</div>
-      <!-- Mini growth bars -->
-      <div style="display:flex;align-items:flex-end;justify-content:center;gap:3px;height:28px;margin:8px 0 4px;">
-        <div style="width:8px;background:rgba(123,111,196,0.2);border-radius:2px 2px 0 0;height:35%;"></div>
-        <div style="width:8px;background:rgba(123,111,196,0.3);border-radius:2px 2px 0 0;height:50%;"></div>
-        <div style="width:8px;background:rgba(123,111,196,0.45);border-radius:2px 2px 0 0;height:65%;"></div>
-        <div style="width:8px;background:rgba(123,111,196,0.6);border-radius:2px 2px 0 0;height:80%;"></div>
-        <div style="width:8px;background:var(--accent);border-radius:2px 2px 0 0;height:100%;box-shadow:0 0 8px var(--accent-glow);"></div>
-      </div>
-      <p class="ct">Total reserves requiring continuous monitoring under the GENIUS Act.</p>
+    <div class="c" style="padding:10px 12px;">
+      <div style="font-family:var(--mono);font-size:9px;color:var(--text-4);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:5px;">Layer 1</div>
+      <div style="font-size:14px;font-weight:500;color:var(--text);margin-bottom:4px;">On-Chain Data Platforms</div>
+      <div style="font-size:12px;color:var(--text-3);line-height:1.55;">Mint/burn flows, wallet balances, transaction history. Real-time. Authoritative for on-chain behavior.</div>
+      <div style="margin-top:8px;font-family:var(--mono);font-size:10px;color:var(--text-4);line-height:1.7;">Dune · Nansen · Chainalysis</div>
     </div>
-    <div class="c" style="text-align:center;padding:10px 10px;">
-      <div class="sn" style="font-size:30px;">4,000+</div>
-      <div class="sl">DeFi Treasuries (SAM)</div>
-      <!-- Mini protocol icons (abstract dots) -->
-      <div style="display:flex;align-items:center;justify-content:center;gap:5px;height:28px;margin:8px 0 4px;flex-wrap:wrap;">
-        <div style="width:7px;height:7px;border-radius:50%;background:var(--accent-soft);opacity:0.7;"></div>
-        <div style="width:7px;height:7px;border-radius:50%;background:var(--accent);opacity:0.8;"></div>
-        <div style="width:7px;height:7px;border-radius:50%;background:var(--accent-bright);opacity:0.6;"></div>
-        <div style="width:7px;height:7px;border-radius:50%;background:var(--accent-soft);opacity:0.5;"></div>
-        <div style="width:7px;height:7px;border-radius:50%;background:var(--accent-deep);opacity:0.9;"></div>
-        <div style="width:5px;height:5px;border-radius:50%;background:var(--accent);opacity:0.4;"></div>
-        <div style="width:5px;height:5px;border-radius:50%;background:var(--accent-soft);opacity:0.35;"></div>
-        <div style="width:4px;height:4px;border-radius:50%;background:var(--accent-bright);opacity:0.3;"></div>
-      </div>
-      <p class="ct">MakerDAO, Aave, Compound — every protocol holding stablecoins needs real-time visibility.</p>
+    <div class="c ca cg" style="padding:10px 12px;">
+      <div style="font-family:var(--mono);font-size:9px;color:var(--accent-soft);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:5px;">★ Layer 2 — Katabatic</div>
+      <div style="font-size:14px;font-weight:500;color:var(--text);margin-bottom:4px;">Reserve Risk Infrastructure</div>
+      <div style="font-size:12px;color:var(--text-2);line-height:1.55;">WAM duration risk, FDIC bank health, weather tail-risk, LLM consensus stress scores. The structural fragility layer on-chain data can't see.</div>
+      <div style="margin-top:8px;font-family:var(--mono);font-size:10px;color:var(--accent-soft);line-height:1.7;">stress_score · latency_hours · coverage_ratio</div>
     </div>
-    <div class="c" style="text-align:center;padding:10px 10px;">
-      <div class="sn" style="font-size:30px;">0</div>
-      <div class="sl">Direct Competitors</div>
-      <p class="ct" style="margin-top:10px;">Nobody combines WAM engine, knowledge graph, data center ops risk, and multi-model LLM consensus into a liquidity stress simulator.</p>
+    <div class="c" style="padding:10px 12px;">
+      <div style="font-family:var(--mono);font-size:9px;color:var(--text-4);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:5px;">Layer 3</div>
+      <div style="font-size:14px;font-weight:500;color:var(--text);margin-bottom:4px;">Downstream Consumers</div>
+      <div style="font-size:12px;color:var(--text-3);line-height:1.55;">DAO governance contracts, DeFi protocol rebalancing, institutional risk desks, Chainlink oracle feeds. Output consumed by <em>systems</em>, not just viewed by humans.</div>
+      <div style="margin-top:8px;font-family:var(--mono);font-size:10px;color:var(--text-4);line-height:1.7;">MakerDAO · Aave · Compound · Risk Desks</div>
     </div>
   </div>
 
-  <div class="g2" style="flex:1;min-height:0;align-items:stretch;">
-    <div class="c" style="padding:10px 14px;">
-      <div class="clabel" style="color:var(--accent-soft);">Revenue Model</div>
-      <div class="roi"><span class="roi-l">DAO Treasuries</span><span class="roi-v">$2K – $10K / mo</span></div>
-      <div class="roi"><span class="roi-l">Institutional risk desks</span><span class="roi-v">$50K+ / yr enterprise</span></div>
-      <div class="roi"><span class="roi-l">Stablecoin issuers</span><span class="roi-v">Compliance API</span></div>
-      <div class="roi"><span class="roi-l">DeFi protocols</span><span class="roi-v">Oracle data licensing</span></div>
+  <div class="c ca" style="padding:12px 14px;display:flex;gap:14px;align-items:start;">
+    <div style="flex:1.2;border-right:1px solid var(--border-a);padding-right:14px;">
+      <div class="clabel" style="color:var(--accent-soft);">The Analogy</div>
+      <div style="font-size:13px;color:var(--text);line-height:1.6;font-weight:400;margin-bottom:6px;">On-chain data platforms became the system of record for what's happening on-chain — the data layer Visa and a16z integrate into their own systems.</div>
+      <div style="font-size:12px;color:var(--text-3);line-height:1.55;">The GENIUS Act is creating the same moment for off-chain reserve data. Before 2026: no programmatic access. After GENIUS Act: XBRL feeds, OCC APIs, continuous ingest. We are first to build the infrastructure layer above it.</div>
     </div>
-    <div class="c ca" style="padding:10px 14px;">
-      <div class="clabel" style="color:var(--accent-soft);">Defensible Moat</div>
-      <p style="font-size:12px;color:var(--text-2);line-height:1.6;margin:0 0 8px;font-weight:300;">Existing approaches: monthly PDF attestations (30-day lag). Chainalysis covers on-chain only. No one combines:</p>
-      <div style="display:flex;flex-direction:column;gap:7px;">
-        <div class="chk"><span class="chk-v">✓</span><span>WAM duration scoring engine</span></div>
-        <div class="chk"><span class="chk-v">✓</span><span>Geo knowledge graph + data center ops risk</span></div>
-        <div class="chk"><span class="chk-v">✓</span><span>Multi-model LLM consensus with TEE oracle layer</span></div>
+    <div style="flex:1;display:flex;flex-direction:column;gap:8px;">
+      <div style="background:rgba(0,0,0,0.25);border:1px solid rgba(123,111,196,0.1);border-radius:8px;padding:8px 10px;">
+        <div class="clabel" style="color:var(--accent-soft);margin-bottom:4px;">Business Model</div>
+        <div style="font-size:12px;color:var(--text-2);line-height:1.6;">API-first · Enterprise contracts<br>Warehouse delivery · Real-time streaming</div>
+      </div>
+      <div style="background:rgba(0,0,0,0.25);border:1px solid rgba(123,111,196,0.1);border-radius:8px;padding:8px 10px;">
+        <div class="clabel" style="color:var(--accent-soft);margin-bottom:4px;">Defensible Moat</div>
+        <div style="display:flex;flex-direction:column;gap:5px;">
+          <div class="chk"><span class="chk-v">✓</span><span>WAM duration scoring engine</span></div>
+          <div class="chk"><span class="chk-v">✓</span><span>Geo knowledge graph + DC ops risk</span></div>
+          <div class="chk"><span class="chk-v">✓</span><span>Multi-model LLM consensus oracle layer</span></div>
+        </div>
       </div>
     </div>
   </div>
@@ -834,13 +801,12 @@ body.fs .snotes { display:none !important; }
 
 <!-- ═══════ 7 — DEMO ═══════ -->
 <section data-transition="zoom"
-  data-notes="<span class='nt'>2:25–2:50 · 25s</span><strong>Switch to live dashboard now.</strong> Three scenarios. Scenario A: drop Cat 4 on Gulf — FL bank markers turn red (LTV deterioration) AND Northern Virginia data center corridor lights up (ops freeze). Stress score spikes to 68. Click causal explanation: Claude + GPT consensus badge. 68, latency 72h, coverage 88%. Scenario B: SVB backtest — WAM chart shows 94% in 2-year bonds, engine flags critical 48h before the dollar-eighty-seven depeg. Scenario C: rate hike slider — see which stablecoins are most duration-exposed.">
+  data-notes="<span class='nt'>2:15–2:40 · 25s</span><strong>Switch to live dashboard now.</strong> Three scenarios. Scenario A: drop Cat 4 on Gulf — FL bank markers turn red (LTV deterioration) AND Northern Virginia data center corridor lights up (ops freeze). Stress score spikes to 68. Click causal explanation: Claude + GPT consensus badge. 68, latency 72h, coverage 88%. Scenario B: SVB backtest — WAM chart shows 94% in 2-year bonds, engine flags critical 48h before the dollar-eighty-seven depeg. Scenario C: rate hike slider — see which stablecoins are most duration-exposed.">
 <div class="sw">
   <div class="ey">Live Demo</div>
   <h2 class="h2">Three scenarios. <span class="em">One engine.</span></h2>
 
-  <div style="display:flex;gap:10px;flex:1;min-height:0;align-items:stretch;">
-    <!-- 5-beat script -->
+  <div style="display:flex;gap:10px;margin-top:6px;align-items:start;">
     <div class="c" style="flex:0.85;display:flex;flex-direction:column;gap:0;overflow:hidden;">
       <div class="clabel" style="margin-bottom:6px;">Demo Script · 5 Beats · &lt;2 Min</div>
       <div style="display:flex;gap:8px;align-items:flex-start;padding:5px 0;border-bottom:1px solid rgba(255,255,255,0.05);">
@@ -864,7 +830,6 @@ body.fs .snotes { display:none !important; }
         <div style="font-size:13px;color:var(--text-2);line-height:1.45;"><strong style="color:var(--text);">Close.</strong> "Not a grade. 72h latency and 88% coverage under Cat 4 + 50bps. That's what DAOs need. That's Katabatic."</div>
       </div>
     </div>
-    <!-- Scenario A -->
     <div class="c ca cg scn" style="flex:1.15;">
       <div>
         <div class="scn-cat">Scenario A · Primary Demo</div>
@@ -878,8 +843,6 @@ body.fs .snotes { display:none !important; }
       </div>
       <div style="margin-top:8px;"><span class="badge">CONSENSUS · Claude 68 · GPT 71 · δ=3</span></div>
     </div>
-
-    <!-- Scenario B -->
     <div class="c scn" style="flex:1;">
       <div>
         <div class="scn-cat">Scenario B · Backtested</div>
@@ -892,8 +855,6 @@ body.fs .snotes { display:none !important; }
         <div><span style="color:var(--text-4);">verdict  </span><span class="ovr">CRITICAL</span></div>
       </div>
     </div>
-
-    <!-- Scenario C -->
     <div class="c scn" style="flex:1;">
       <div>
         <div class="scn-cat">Scenario C · Rate Sensitivity</div>
@@ -925,15 +886,54 @@ body.fs .snotes { display:none !important; }
 </div>
 </section>
 
-<!-- ═══════ 8 — TEAM ═══════ -->
+<!-- ═══════ 8 — VISION ═══════ -->
 <section data-transition="slide"
-  data-notes="<span class='nt'>2:50–3:05 · 15s</span><strong>Brief and confident.</strong> Introduce yourselves. 'We built this in 36 hours at Cornell's AI Hackathon. The infrastructure is real, the pipeline is live.' Emphasize complementary skills — one on the AI scoring engine and data pipelines, one on the frontend product and knowledge graph. Keep it fast.">
+  data-notes="<span class='nt'>2:40–3:00 · 20s</span><strong>Paint the endgame briefly.</strong> 'Weather + duration is how we prove the engine. Phase 1: stress simulator. Phase 2: multi-model consensus signals pushed to Chainlink oracles — DeFi protocols auto-rebalance when a threshold is crossed. Multi-SIG for AI. Phase 3: we use our own risk intelligence to design the most transparently managed stablecoin in crypto. Bloomberg started with terminals. We start with simulations.'">
+<div class="sw">
+  <div class="ey">Future Vision</div>
+  <h2 class="h2">From stress simulator to <span class="em">financial infrastructure.</span></h2>
+
+  <div class="g3" style="margin-top:8px;">
+    <div class="c" style="padding:14px 16px;position:relative;overflow:hidden;">
+      <div style="position:absolute;top:0;left:0;right:0;height:2px;background:var(--accent-soft);opacity:0.5;"></div>
+      <div style="font-family:var(--mono);font-size:10px;color:var(--text-4);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;">Phase 1 · Now</div>
+      <div style="font-size:18px;font-weight:500;color:var(--text);margin-bottom:8px;line-height:1.2;">Stress-Test Playground</div>
+      <p style="font-size:13px;color:var(--text-3);line-height:1.6;">Prove the engine: duration mismatch as the primary signal, weather as the tail-risk multiplier, LLM jury for consensus. Output: LCR + redemption latency under any scenario.</p>
+      <div class="obox" style="margin-top:10px;font-size:11px;">
+        <div><span style="color:var(--text-4);">output → </span><span class="ov">latency + coverage under scenario</span></div>
+      </div>
+    </div>
+    <div class="c ca cg" style="padding:14px 16px;position:relative;overflow:hidden;">
+      <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent-deep),var(--accent));"></div>
+      <div style="font-family:var(--mono);font-size:10px;color:var(--accent-soft);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;">Phase 2 · Next</div>
+      <div style="font-size:18px;font-weight:500;color:var(--text);margin-bottom:8px;line-height:1.2;">Oracle-Grade Risk Feed</div>
+      <p style="font-size:13px;color:var(--text-2);line-height:1.6;">Multi-model consensus signals pushed to Chainlink oracles inside TEEs. DeFi protocols auto-rebalance stablecoin positions when stress thresholds are crossed.</p>
+      <div style="margin-top:10px;"><span class="badge badge-a">Multi-SIG for AI · Chainlink-ready</span></div>
+    </div>
+    <div class="c" style="padding:14px 16px;position:relative;overflow:hidden;">
+      <div style="position:absolute;top:0;left:0;right:0;height:2px;background:var(--accent-deep);opacity:0.6;"></div>
+      <div style="font-family:var(--mono);font-size:10px;color:var(--text-4);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;">Phase 3 · Endgame</div>
+      <div style="font-size:18px;font-weight:500;color:var(--text);margin-bottom:8px;line-height:1.2;">The Katabatic Stablecoin</div>
+      <p style="font-size:13px;color:var(--text-3);line-height:1.6;">Use our own risk intelligence to design a stablecoin with optimal reserve structure — diversified counterparties, continuously stress-tested, managed by the engine that rates them all.</p>
+    </div>
+  </div>
+
+  <div class="c" style="margin-top:10px;padding:11px 14px;text-align:center;">
+    <div style="font-size:13px;color:var(--text-3);line-height:1.6;font-style:italic;">
+      "Bloomberg started with data terminals and became financial infrastructure. We start with stress simulations and become the most transparent stablecoin in crypto."
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ═══════ 9 — TEAM ═══════ -->
+<section data-transition="slide"
+  data-notes="<span class='nt'>3:00–3:15 · 15s</span><strong>Brief and confident.</strong> Introduce yourselves. 'We built this in 36 hours at Cornell's AI Hackathon. The infrastructure is real, the pipeline is live.' Emphasize complementary skills — one on the AI scoring engine and data pipelines, one on the frontend product and knowledge graph. Keep it fast.">
 <div class="sw">
   <div class="ey">The Team</div>
   <h2 class="h2">Built at Cornell<br>in <span class="em">36 hours.</span></h2>
 
-  <div style="display:flex;gap:12px;flex:1;min-height:0;align-items:stretch;margin-top:4px;">
-    <!-- Adi -->
+  <div style="display:flex;gap:12px;flex:1;min-height:0;align-items:start;margin-top:4px;">
     <div class="c ca" style="flex:1;padding:14px 16px;display:flex;flex-direction:column;gap:8px;">
       <div>
         <div style="font-family:var(--mono);font-size:10px;color:var(--text-4);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;">Founder</div>
@@ -949,8 +949,6 @@ body.fs .snotes { display:none !important; }
         <span class="pill">FDIC API</span>
       </div>
     </div>
-
-    <!-- Aritro -->
     <div class="c ca" style="flex:1;padding:14px 16px;display:flex;flex-direction:column;gap:8px;">
       <div>
         <div style="font-family:var(--mono);font-size:10px;color:var(--text-4);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;">Founder</div>
@@ -966,8 +964,6 @@ body.fs .snotes { display:none !important; }
         <span class="pill">NOAA API</span>
       </div>
     </div>
-
-    <!-- Tech stack -->
     <div style="flex:0.55;display:flex;flex-direction:column;gap:10px;min-height:0;">
       <div class="c cg" style="flex:1;padding:12px 14px;display:flex;flex-direction:column;justify-content:center;gap:10px;">
         <div style="font-family:var(--mono);font-size:10px;color:var(--accent-soft);letter-spacing:0.1em;text-transform:uppercase;">Cornell AI Hackathon 2026</div>
@@ -986,9 +982,9 @@ body.fs .snotes { display:none !important; }
 </div>
 </section>
 
-<!-- ═══════ 9 — CLOSE ═══════ -->
+<!-- ═══════ 10 — CLOSE ═══════ -->
 <section class="hero" data-transition="zoom"
-  data-notes="<span class='nt'>3:05–3:25 · 20s</span><strong>Land it with the quote, then the ask.</strong> 'Under a Cat 4 hitting the Gulf plus 50 basis points hike — your USDC position shows 72-hour redemption latency and 88% coverage. That's not a letter grade you can get sued over. That's operational intelligence for DAO treasuries and DeFi protocols.' Then: 'We're looking for three things: early design partner DAOs, institutional risk desks who want a pilot, and advisors with DeFi or regulatory depth. That's Katabatic.'">
+  data-notes="<span class='nt'>3:15–3:35 · 20s</span><strong>Land it with the vision, then the ask.</strong> 'If we can trace a hurricane through LTV deterioration to a 72-hour redemption freeze with multi-model consensus — imagine every stress scenario, every stablecoin, continuously simulated. Weather proves the engine. The vision is oracle-grade risk infrastructure.' Then: 'We're looking for three things: early design partner DAOs, institutional risk desks who want a pilot, and advisors with DeFi or regulatory depth. That's Katabatic.'">
 <div class="sw">
   <div class="hero-bg"></div>
   <div class="hero-grid"></div>
@@ -1002,15 +998,14 @@ body.fs .snotes { display:none !important; }
   </div>
   <div class="hero-text" style="max-width:700px;">
     <div style="font-family:var(--mono);font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:rgba(184,175,245,0.38);margin-bottom:24px;">
-      What-If Engine · Not a Rating Agency
+      Weather Proves the Engine · Oracle-Grade Risk Infrastructure
     </div>
-    <h1 style="font-size:34px;line-height:1.3;margin-bottom:14px;font-weight:300;">
-      "Under Cat 4 + 50bps hike:<br>
-      <span style="color:var(--accent-soft);font-weight:400;">72h latency. 88% coverage."</span>
+    <h1 style="font-size:32px;line-height:1.3;margin-bottom:14px;font-weight:300;">
+      Weather proves the engine.<br>
+      <span style="color:var(--accent-soft);font-weight:400;">The vision is oracle-grade risk infrastructure.</span>
     </h1>
-    <p style="font-size:14px;color:rgba(255,255,255,0.3);max-width:520px;margin:0 auto 20px;line-height:1.7;font-weight:300;">
-      Not a letter grade you can get sued over.<br>
-      Operational intelligence for DAO treasuries.
+    <p style="font-size:13px;color:rgba(255,255,255,0.3);max-width:520px;margin:0 auto 16px;line-height:1.7;font-weight:300;">
+      If we can trace a hurricane through LTV deterioration to a 72-hour redemption freeze with multi-model consensus — imagine every stress scenario, every stablecoin, continuously simulated.
     </p>
 
     <div style="background:rgba(123,111,196,0.07);border:1px solid rgba(123,111,196,0.18);border-radius:8px;padding:14px 20px;margin-bottom:18px;text-align:left;max-width:520px;margin-left:auto;margin-right:auto;">
@@ -1074,8 +1069,8 @@ deck.initialize().then(() => {
   const total = deck.getTotalSlides();
   const dotsEl = document.getElementById('dots');
   const visited = new Set([0]);
-  // 9 slides: Hero(15s) Problem(25s) Solution(20s) Engine(30s) WhyNow(25s) Market(30s) Demo(25s) Team(15s) Close(20s) = 205s total
-  const paces = [15, 25, 20, 30, 25, 30, 25, 15, 20];
+  // 10 slides: Hero(15s) Problem(25s) Engine(20s) Dimensions(25s) WhyNow(25s) Positioning(25s) Demo(25s) Vision(20s) Team(15s) Close(20s) = 215s total
+  const paces = [15, 25, 20, 25, 25, 25, 25, 20, 15, 20];
 
   for (let i = 0; i < total; i++) {
     const d = document.createElement('div');
