@@ -15,7 +15,7 @@
   --color-text-secondary: #555555;
   --color-text-tertiary: #888888;
   --color-text-muted: #bbbbbb;
-  --font-family-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-family-sans: 'Sora', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 @layer base {
