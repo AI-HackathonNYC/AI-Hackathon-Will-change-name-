@@ -1,8 +1,10 @@
-# Katabatic
+# Helicity
 
 **The system of record for stablecoin reserve risk.**
 
-Cornell AI Hackathon 2026 · Programmable Capital Track
+Cornell AI Hackathon 2026 · Programmable Capital Track · [Live demo](https://helicity-theta.vercel.app)
+
+Helicity scores liquidity stress for stablecoin reserves in real time. It builds a NetworkX knowledge graph linking stablecoins, banks, and jurisdictions, computes composite risk from reserve duration, FDIC Call Report data, and weather tail events, then runs a multi-model LLM jury to generate consensus causal narratives. Every score snapshot is pinned to IPFS for a verifiable audit trail, and a FastAPI backend plus MCP server exposes scores to the React dashboard and to AI agents.
 
 ---
 
@@ -22,8 +24,8 @@ Install these before anything else:
 ### 1. Clone the repo
 
 ```bash
-git clone https://github.com/AI-HackathonNYC/AI-Hackathon-Will-change-name-.git
-cd AI-Hackathon-Will-change-name-
+git clone https://github.com/AI-HackathonNYC/helicity.git
+cd helicity
 ```
 
 ### 2. Run the setup script
